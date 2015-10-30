@@ -7,6 +7,7 @@
 
     </style>
     <script>
+        //nao terminado
         img1 = document.getElementById('1');
         img2 = document.getElementById('2');
         img3 = document.getElementById('3');
@@ -54,13 +55,13 @@
         );
         conta = 0;
         conta2 = 0;
-        function check(img, check, mu){
+        function check(img, check){
             img1 = document.getElementById('1');
             img2 = document.getElementById('2');
             img3 = document.getElementById('3');
             img4 = document.getElementById('4');
             last = "";
-            if(img.src == check.src){
+            if(img.src == check.src && img.id != check.id){
                 ++conta2;
                 if(mu == 1) mu1 = false;
                 if(mu == 2) mu2 = false;
@@ -91,8 +92,8 @@
             }
             conta++;
             if (conta == 1) last = img1;
-            if (conta == 2 && mu1){
-                check(img1, last, 1);
+            if (conta == 2){
+                check(img1, last);
             }
         }
         function muda2(){
@@ -104,8 +105,8 @@
             }
             conta++;
             if (conta == 1) last = img2;
-            if (conta == 2 && mu2) {
-                check(img2, last, 2);
+            if (conta == 2) {
+                check(img2, last);
             }
         }
         function muda3(){
@@ -117,8 +118,8 @@
             }
             conta++;
             if(conta == 1) last = img3;
-            if (conta == 2 && mu3){
-                check(img3, last, 3);
+            if (conta == 2 ){
+                check(img3, last);
             }
         }
         function muda4() {
@@ -131,7 +132,7 @@
             conta++;
 
             if (conta == 1) last = img4;
-            if (conta == 2 && mu4){
+            if (conta == 2){
                 check(img4, last, 4);
             }
         }
