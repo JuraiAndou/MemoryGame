@@ -4,7 +4,22 @@
     <meta charset="UTF-8">
     <title></title>
     <style type="text/css">
-
+        * {
+            margin:0;
+            padding:0;
+        }
+        .card{
+            height: 256px;
+            width: 256px;
+            float: left;
+            box-shadow: -1px 2px 7px;
+            margin: 15px;
+            transition: .3s;
+        }
+        .card:hover{
+            box-shadow: -3px 5px 15px;
+            transition: .3s;
+        }
     </style>
     <script>
         //nao terminado
@@ -63,10 +78,6 @@
             last = "";
             if(img.src == check.src && img.id != check.id){
                 ++conta2;
-                if(mu == 1) mu1 = false;
-                if(mu == 2) mu2 = false;
-                if(mu == 3) mu3 = false;
-                if(mu == 4) mu4 = false;
                 if(conta2 == 2) {
                     document.write("You Wins!");
                     document.write("<br><input type='button' value='voltar' onclick='location.reload()'>");
@@ -79,10 +90,6 @@
             }
             conta -= 2;
         }
-        mu1 = true;
-        mu2 = true;
-        mu3 = true;
-        mu4 = true;
         function muda1(){
             img1 = document.getElementById('1');
             if (um == 1) {
@@ -133,7 +140,7 @@
 
             if (conta == 1) last = img4;
             if (conta == 2){
-                check(img4, last, 4);
+                check(img4, last);
             }
         }
     </script>
@@ -141,12 +148,12 @@
 <body>
     <table id="game">
         <tr>
-            <td><img src="img/costas.png" id="1" onclick="muda1();"></td>
-            <td><img src="img/costas.png" id="2" onclick="muda2();"></td>
+            <td><img src="img/costas.png" id="1" onclick="muda1();" class="card"></td>
+            <td><img src="img/costas.png" id="2" onclick="muda2();" class="card"></td>
         </tr>
         <tr>
-            <td><img src="img/costas.png" id="3" onclick="muda3();"></td>
-            <td><img src="img/costas.png" id="4" onclick="muda4();"></td>
+            <td><img src="img/costas.png" id="3" onclick="muda3();" class="card"></td>
+            <td><img src="img/costas.png" id="4" onclick="muda4();" class="card"></td>
         </tr>
     </table>
 </body>
