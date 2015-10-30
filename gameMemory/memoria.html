@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+    </style>
+    <script>
+        img1 = document.getElementById('1');
+        img2 = document.getElementById('2');
+        img3 = document.getElementById('3');
+        img4 = document.getElementById('4');
+        var um, dois, tres, quatro;
+        var classe = Math.round((Math.random() * 5));
+        console.log(classe);
+        if(classe == 0){
+            um = 1;
+            dois = 1;
+            tres = 2;
+            quatro = 2;
+        }else if(classe == 1){
+            um = 2;
+            dois = 2;
+            tres = 1;
+            quatro = 1;
+        }else if(classe == 2){
+            um = 2;
+            dois = 1;
+            tres = 1;
+            quatro = 2;
+        }else if(classe == 3){
+            um = 1;
+            dois = 2;
+            tres = 2;
+            quatro = 1;
+        }else if(classe == 4){
+            um = 1;
+            dois = 2;
+            tres = 1;
+            quatro = 2;
+        }else if(classe == 5){
+            um = 2;
+            dois = 1;
+            tres = 2;
+            quatro = 1;
+        }
+
+        console.log(
+                + um + " - "
+                + dois + " - "
+                + tres + " - "
+                + quatro
+        );
+        conta = 0;
+        conta2 = 0;
+        function check(img, check, mu){
+            img1 = document.getElementById('1');
+            img2 = document.getElementById('2');
+            img3 = document.getElementById('3');
+            img4 = document.getElementById('4');
+            last = "";
+            if(img.src == check.src){
+                ++conta2;
+                if(mu == 1) mu1 = false;
+                if(mu == 2) mu2 = false;
+                if(mu == 3) mu3 = false;
+                if(mu == 4) mu4 = false;
+                if(conta2 == 2) {
+                    document.write("You Wins!");
+                    document.write("<br><input type='button' value='voltar' onclick='location.reload()'>");
+                }
+            }else{
+                setTimeout(function(){
+                    img.src = 'img/costas.png';
+                    check.src = 'img/costas.png';
+                }, 500);
+            }
+            conta -= 2;
+        }
+        mu1 = true;
+        mu2 = true;
+        mu3 = true;
+        mu4 = true;
+        function muda1(){
+            img1 = document.getElementById('1');
+            if (um == 1) {
+                img1.src = 'img/AC-DC.png';
+            } else if (um == 2) {
+                img1.src = 'img/Offspring.png';
+            }
+            conta++;
+            if (conta == 1) last = img1;
+            if (conta == 2 && mu1){
+                check(img1, last, 1);
+            }
+        }
+        function muda2(){
+            img2 = document.getElementById('2');
+            if (dois == 1){
+                img2.src = 'img/AC-DC.png';
+            } else if (dois == 2) {
+                img2.src = 'img/Offspring.png';
+            }
+            conta++;
+            if (conta == 1) last = img2;
+            if (conta == 2 && mu2) {
+                check(img2, last, 2);
+            }
+        }
+        function muda3(){
+            img3 = document.getElementById('3');
+            if(tres == 1){
+                img3.src = 'img/AC-DC.png';
+            }else if(tres == 2){
+                img3.src = 'img/Offspring.png';
+            }
+            conta++;
+            if(conta == 1) last = img3;
+            if (conta == 2 && mu3){
+                check(img3, last, 3);
+            }
+        }
+        function muda4() {
+            img4 = document.getElementById('4');
+            if (quatro == 1) {
+                img4.src = 'img/AC-DC.png';
+            } else if (quatro == 2) {
+                img4.src = 'img/Offspring.png';
+            }
+            conta++;
+
+            if (conta == 1) last = img4;
+            if (conta == 2 && mu4){
+                check(img4, last, 4);
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="game">
+        <tr>
+            <td><img src="img/costas.png" id="1" onclick="muda1();"></td>
+            <td><img src="img/costas.png" id="2" onclick="muda2();"></td>
+        </tr>
+        <tr>
+            <td><img src="img/costas.png" id="3" onclick="muda3();"></td>
+            <td><img src="img/costas.png" id="4" onclick="muda4();"></td>
+        </tr>
+    </table>
+</body>
+</html>
